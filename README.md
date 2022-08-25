@@ -101,6 +101,7 @@ Strap will create a dir with the same name as the component name and put every f
 | templatesDir  | `src/component/.templates` | Path to look for templates dir                                       | string                      |
 | componentType | func                       | Component type that will be generated if the type flag not specified | `func / functional / class` |
 | verboseOutput | false                      | Whether to show verbose output or not                                | bool                        |
+| force         | false                      | Whether to overwrite existing component                              | bool                        |
 
 # Examples
 
