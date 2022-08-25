@@ -1,19 +1,15 @@
 # Strap
 
-###### Simple React Component Boilerplate Generater
+### Simple React Component Boilerplate Generater
 
 A command-line utility for bootstraping react component template.
 
 ## Quickstart
 
-Install via NPM:
+Install via Cargo:
 
 ```bash
-# yarn
-$ yarn global add strap
-
-# npm
-$ npm i -g strap
+cargo install strap
 ```
 
 `cd` to project's directory, and run `strap Button` to generate the boilerplate code.
@@ -99,12 +95,12 @@ Strap will create a dir with the same name as the component name and put every f
 
 `strap-config.json` can be used to change the defaults. To generate the config file use `strap --init` command.
 
-| Property      | Default                    | Summary                                                              | Type   |
-| ------------- | -------------------------- | -------------------------------------------------------------------- | ------ | ---------- | ------ |
-| basePath      | `src/components`           | Base dir in which components will be generated                       | string |
-| templatesDir  | `src/component/.templates` | Path to look for templates dir                                       | string |
-| componentType | func                       | Component type that will be generated if the type flag not specified | `func  | functional | class` |
-| verboseOutput | false                      | Whether to show verbose output or not                                | bool   |
+| Property      | Default                    | Summary                                                              | Type                        |
+| ------------- | -------------------------- | -------------------------------------------------------------------- | --------------------------- | 
+| basePath      | `src/components`           | Base dir in which components will be generated                       | string                      |
+| templatesDir  | `src/component/.templates` | Path to look for templates dir                                       | string                      |
+| componentType | func                       | Component type that will be generated if the type flag not specified | `func / functional / class` |
+| verboseOutput | false                      | Whether to show verbose output or not                                | bool                        |
 
 # Examples
 
