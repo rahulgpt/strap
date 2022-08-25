@@ -85,7 +85,7 @@ pub fn write_component_from_template(
             let content = content.replace("_component", &format!("{}", name_and_extension.0));
 
             if use_template_extension {
-                extension = get_extension(entry.file_name().to_str().unwrap());
+                extension = get_file_extension(entry.file_name().to_str().unwrap());
             }
 
             if entry.file_name().to_str().unwrap().contains("_component") {
@@ -158,6 +158,7 @@ pub fn generate_config() {
         component_type: Some("functional".to_owned()),
         typescript: Some(false),
         verbose_output: Some(false),
+        force: Some(false),
     };
 
     fs::write(
@@ -167,7 +168,7 @@ pub fn generate_config() {
     .unwrap();
 }
 
-fn get_extension(file_name_with_extension: &str) -> String {
+fn get_file_extension(file_name_with_extension: &str) -> String {
     file_name_with_extension
         .split(".")
         .next()

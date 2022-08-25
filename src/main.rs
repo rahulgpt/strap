@@ -45,6 +45,10 @@ pub struct Cli {
     /// Generate typescript files
     #[clap(long, short)]
     pub typescript: bool,
+
+    /// Overwrite existing component
+    #[clap(long)]
+    pub force: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -62,6 +66,8 @@ pub struct Config {
     pub verbose_output: Option<bool>,
 
     pub typescript: Option<bool>,
+
+    pub force: Option<bool>,
 }
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
@@ -134,10 +140,13 @@ fn main() {
     let component_name = component_name[0];
 
     // Check if the component already exists
-    if Path::new(&format!("{resolved_path}/{component_name}")).exists() {
-        warn_and_exit(&format!(
-            "A component with name \"{component_name}\" already exists"
-        ));
+    if config.force.unwrap_or_default() || args.force {
+    } else {
+        if Path::new(&format!("{resolved_path}/{component_name}")).exists() {
+            warn_and_exit(&format!(
+                "A component with name \"{component_name}\" already exists"
+            ));
+        }
     }
 
     // create missing directories
